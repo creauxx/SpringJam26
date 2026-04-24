@@ -10,15 +10,31 @@ var current_dir: Vector2i = Vector2i.ZERO
 var tile_size: int = 16
 var repeat_timer: float = 0.0
 var halt: bool = false
+#story toggles
+var bool_bee_1: bool = false
+var bool_bee_2: bool = false
 #sprite vars
 var mc_sprite: Texture2D = preload("res://Art/png/mc sprite.png")
 var bee_sprite: Texture2D = preload("res://Art/png/bee.png")
+#dialogue
+var dialogue_bee = preload("res://Dialogue/bee.dialogue")
 
 
 func _ready():
 	pass
 	
 func _process(delta: float):
+	if mc.position == (Vector2(96, 80) + Vector2(8, 8)) and not halt and not bool_bee_1:
+		halt = true
+		bool_bee_1 = true
+		DialogueManager.show_example_dialogue_balloon(dialogue_bee, "start", [self])
+		await DialogueManager.dialogue_ended		
+		current_dir = Vector2i.ZERO
+		halt = false
+	if mc.position == (Vector2(16, 80) + Vector2(8, 8)) and not halt and bool_bee_1 and not bool_bee_2:
+		halt = true
+		await dialogue_bee_2()
+		current_dir = Vector2i.ZERO
 	if halt: return
 	if current_dir != Vector2i.ZERO:
 		repeat_timer -= delta
@@ -46,3 +62,21 @@ func _unhandled_input(event: InputEvent):
 
 func move_mc(dir):
 	mc.position += Vector2(dir * tile_size)
+	
+	
+func dialogue_bee_1():
+	DialogueManager.show_example_dialogue_balloon(dialogue_bee, "start", [self])
+	await DialogueManager.dialogue_ended
+	
+	
+func dialogue_bee_2():
+	DialogueManager.show_example_dialogue_balloon(dialogue_bee, "bee_1_b", [self])
+	await DialogueManager.dialogue_ended
+	
+
+func reward_bee_1_a():
+	pass
+	
+	
+func move_bee_1():
+	bee.position = Vector2(0, 80) + Vector2(8, 8)

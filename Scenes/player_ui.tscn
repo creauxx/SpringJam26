@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://m15b35thlxb4"]
+
+[ext_resource type="Texture2D" uid="uid://dqn80cpjsjlio" path="res://Art/png/mc sprite.png" id="1_ohrjl"]
+
+[node name="PlayerUI" type="CanvasLayer"]
+layer = 20
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -280.0
+offset_right = 300.0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 95.0
+offset_right = 135.0
+offset_bottom = 134.99997
+scale = Vector2(2, 2)
+texture = ExtResource("1_ohrjl")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 5.0
+offset_right = 208.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Connor the Cactus"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
