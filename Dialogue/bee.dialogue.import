@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bud45psvndu3x"
+path="res://.godot/imported/bee.dialogue-137c51736f7e5edd13e6c3a0ebfa694c.tres"
+
+[deps]
+
+source_file="res://Dialogue/bee.dialogue"
+dest_files=["res://.godot/imported/bee.dialogue-137c51736f7e5edd13e6c3a0ebfa694c.tres"]
+
+[params]
+
+defaults=true
