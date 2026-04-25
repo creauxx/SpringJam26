@@ -140,11 +140,15 @@ func apply_dialogue_line() -> void:
 	responses_menu.responses = dialogue_line.responses
 
 ##cr3aux code
-	print(dialogue_line.character)
-	if dialogue_line.character == "Connor the Cactus":
-		print("yes?")
-		$Balloon/MarginContainer/PanelContainer/ColorRect.self_modulate = Color.WEB_GREEN
-
+	match dialogue_line.character: 
+		"Connor the Cactus":
+			$Balloon/MarginContainer/PanelContainer/ColorRect.self_modulate = Color.WEB_GREEN
+		"Beatrice the Bee":
+			$Balloon/MarginContainer/PanelContainer/ColorRect.self_modulate = Color.GOLD
+		"Sunny the Sunflower":
+			$Balloon/MarginContainer/PanelContainer/ColorRect.self_modulate = Color.SADDLE_BROWN
+		"Sally the Spider":
+			$Balloon/MarginContainer/PanelContainer/ColorRect.self_modulate = Color.BLACK
 ##
 	# Show our balloon
 	balloon.show()

@@ -3,6 +3,7 @@ extends Node2D
 @onready var mc = $MC
 @onready var bee = $Bee
 @onready var sunflower = $Sunflower
+@onready var spider = $Spider
 @onready var game_ui = $PlayerUI
 @onready var tile_map = $BaseLayer
 @onready var flower_1 = $Flower1
@@ -24,6 +25,9 @@ var offset_pos: Vector2 = Vector2(8, 8)
 var bool_bee_1: bool = false
 var bool_bee_2: bool = false
 var bool_sunflower_1: bool = false
+var bool_spider_1: bool = false
+var bool_spider_2: bool = false
+var bool_spider_3: bool = false
 var bool_first_flower: bool = true
 var bool_flower_1: bool = false
 var bool_flower_2: bool = false
@@ -39,6 +43,7 @@ var bee_sprite: Texture2D = preload("res://Art/png/bee.png")
 var dialogue_bee = preload("res://Dialogue/bee.dialogue")
 var dialogue_flowers = preload("res://Dialogue/flowers.dialogue")
 var dialogue_sunflowers = preload("res://Dialogue/sunflowers.dialogue")
+var dialogue_spider = preload("res://Dialogue/spider.dialogue")
 
 
 func _ready():
@@ -66,7 +71,21 @@ func _process(delta: float):
 		bool_sunflower_1 = true
 		DialogueManager.show_example_dialogue_balloon(dialogue_sunflowers, "start", [self])
 		await DialogueManager.dialogue_ended	
-		sunflower.position = Vector2(48, 144) + offset_pos
+		current_dir = Vector2i.ZERO
+		halt = false
+##Sally the Spider
+	if (mc.position == (spider.position) + Vector2(48, 0) or mc.position == (spider.position) + Vector2(32, 16) or mc.position == (spider.position) + Vector2(16, 32) or mc.position == (spider.position) + Vector2(0, -48)) and not halt and not bool_spider_1:
+		halt = true
+		bool_spider_1 = true
+		DialogueManager.show_example_dialogue_balloon(dialogue_spider, "start", [self])
+		await DialogueManager.dialogue_ended	
+		current_dir = Vector2i.ZERO
+		halt = false
+	if (mc.position == (spider.position) + Vector2(48, 0) or mc.position == (spider.position) + Vector2(32, 16) or mc.position == (spider.position) + Vector2(16, 32)) and not halt and bool_spider_1 and not bool_spider_2 and not bool_spider_3:
+		halt = true
+		bool_spider_3 = true
+		DialogueManager.show_example_dialogue_balloon(dialogue_spider, "panic", [self])
+		await DialogueManager.dialogue_ended	
 		current_dir = Vector2i.ZERO
 		halt = false
 ##Flowers
@@ -119,11 +138,19 @@ func move_mc(dir):
 		var is_solid = data.get_custom_data("is_solid")
 		if is_solid: return
 	mc.position += Vector2(dir * tile_size)
-	
+	bool_spider_3 = false
 
-func reward_bee_1_a():
+
+func reward_bee():
 	mc.texture = mc_sprite_1
 	game_ui.update_texture(mc.texture)
-	
-func move_bee_1():
 	bee.position = Vector2(0, 80) + offset_pos
+	
+func spider_reward():
+	spider.position = Vector2(48, 16) + offset_pos
+	game_ui.unhide_spider()
+	bool_spider_2 = true
+
+func sunflower_reward():
+	sunflower.position = Vector2(48, 144) + offset_pos
+	game_ui.unhide_sunflower()

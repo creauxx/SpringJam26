@@ -4,5 +4,12 @@ Connor the Cactus: Is everything alright?
 Sunny the Sunflower: Yes. Well, no. It's just...I don't quite feel like a sunflower today. 
 Connor the Cactus: Well, you don't have to feel like a sunflower to bee...I mean...be a sunflower. 
 Sunny the Sunflower: I guess you're right. Hey, mind if I join you?
-- OK
+- I'd love that!
+	do sunflower_reward()
+	=> END
+- I'd prefer you didn't. => panic
+=> END
+
+~ panic
+Sunny the Sunflower: It's true then, what they say...I'm rotten.
 => END

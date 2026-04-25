@@ -26,8 +26,7 @@ Beatrice the Bee: Go for a walk, it'll do ya some good.
 
 ~ bee_1_a
 Beatrice the Bee: That's the spririt! I'll wait here. 
-do reward_bee_1_a()
-do move_bee_1()
+do reward_bee()
 => END
 
 ~ bee_1_b

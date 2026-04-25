@@ -1,13 +1,23 @@
 ~ start
-Sally the Spider: Oh my, oh my, oh my. 
+Sally the Spider: Don't come any further! Oh my, oh my, oh my. 
 Connor the Cactus: Hey - what's the matter?
-Sally the Spider: Well you see I spun so many webs that I'm feeling a bit claustraphobic is all.
-Sally the Spider: Can you imagine? A spider feeling claustraphobic? I'm a disgrace.
-Connor the Cactus: It's ok to be scared...sometimes, taking a deep breath helps.
-Sally the Spider: I don't...*heaves*...know if I...*heaves*...can...
-Connor the Cactus: Sure you can, I'll do it with you. Ready? 
-Connor the Cactus: deeeeeeep...breathhhhhhh...
-Sally the Spider: deee...*heaves*...eeeep....breathhhh....deeeeeep....breathhhh....deeeep....breathhhhhh.
-Sally the Spider: Hey that helped.
-- OK
+#Sally the Spider: Well. You see. I spun so many webs that I'm feeling a bit...claustrophobic, is all.
+#Sally the Spider: Can you imagine? A spider feeling claustrophobic? I'm a disgrace.
+#Connor the Cactus: It's ok to be scared...sometimes taking a deep breath helps.
+#Sally the Spider: I don't...*heaves*...know if I...*heaves*...can...
+#Connor the Cactus: Sure you can! I'll do it with you. Ready? 
+#Connor the Cactus: deeeeeeep...
+#Connor the Cactus: breathhhhhhh...
+#Sally the Spider: deee...*heaves*...eeeep....breathhhh....deeeeeep....breathhhh....deeeep....breathhhhhh.
+#Sally the Spider: Hey that helped!
+#Sally the Spider: Would you mind if I joined you?
+- Please do!
+	do spider_reward()
+	=> END
+- No thank you. => panic
+=> END
+
+~ panic
+Sally the Spider: Oh my. *heaves* Oh *heaves* my *heaves*. 
+Sally the Spider: I guess I'm a disgrace after all. 
 => END

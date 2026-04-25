@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 @onready var mc_tex = $Control/TextureRect
+@onready var spider = $Control/Spider
+@onready var sunflower = $Control/Sunflower
 @onready var flower_array: Array = [
 	$Control/Flower1, 
 	$Control/Flower2,
@@ -16,3 +18,7 @@ func update_texture(new_texture: Texture2D):
 
 func unhide_flowers(array_num: int):
 	flower_array[array_num].show()
+
+
+func unhide_spider():
+	spider.show()
