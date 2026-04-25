@@ -139,6 +139,13 @@ func apply_dialogue_line() -> void:
 	responses_menu.hide()
 	responses_menu.responses = dialogue_line.responses
 
+##cr3aux code
+	print(dialogue_line.character)
+	if dialogue_line.character == "Connor the Cactus":
+		print("yes?")
+		$Balloon/MarginContainer/PanelContainer/ColorRect.self_modulate = Color.WEB_GREEN
+
+##
 	# Show our balloon
 	balloon.show()
 	will_hide_balloon = false
