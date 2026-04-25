@@ -1,18 +1,18 @@
 ~ start
 Beatrice the Bee: Hey good lookin'. 
-Connor the Cactus: I don't feel very good lookin' today...
-Beatrice the Bee: Well that's quite alright cause you don't have to feel it to look it! 
-Connor the Cactus: Thanks...if you don't mind me asking...what are you, exactly?
-Beatrice the Bee: I'm a Bee of course, Beatrice is the name. 
-Connor the Cactus: You don't look like a bee...
-Beatrice the Bee: Well that's quite alright cause I don't have to look it to bee it!
-Connor the Cactus: Well, ok...sorry....is it always so quiet here, Beatrice? 
-Beatrice the Bee: I don't think it's quiet!
-Beatrice the Bee: You can hear the sound of your own breath, can't ya? 
-Connor the Cactus: Well, yeah, but...that's not--
-Beatrice the Bee: How 'bout you take a deep breath and go for a walk, it'll do you some good. 
-Connor the Cactus: I don't wan--
-Beatrice the Bee: Together now...deeeeeep...breathhhh....I'll be here when you get back. 
+#Connor the Cactus: I don't feel very good lookin' today...
+#Beatrice the Bee: Well that's quite alright cause you don't have to feel it to look it! 
+#Connor the Cactus: Thanks...if you don't mind me asking...what are you, exactly?
+#Beatrice the Bee: I'm a Bee of course, Beatrice is the name. 
+#Connor the Cactus: You don't look like a bee...
+#Beatrice the Bee: Well that's quite alright cause I don't have to look it to bee it!
+#Connor the Cactus: Well, ok...sorry....is it always so quiet here, Beatrice? 
+#Beatrice the Bee: I don't think it's quiet!
+#Beatrice the Bee: You can hear the sound of your own breath, can't ya? 
+#Connor the Cactus: Well, yeah, but...that's not--
+#Beatrice the Bee: How 'bout you take a deep breath and go for a walk, it'll do you some good. 
+#Connor the Cactus: I don't wan--
+#Beatrice the Bee: Together now...deeeeeep...breathhhh....I'll be here when you get back. 
 - *take a deep breath* => bee_1_a
 - OK 
 	do move_bee_1()
@@ -33,4 +33,5 @@ do move_bee_1()
 ~ bee_1_b
 Beatrice the Bee: Go for a walk, it'll do ya some good. 
 Beatrice the Bee: You can press "q" to return here at any time.
+Beatrice the Bee: There's a jukebox if the sound of your breath feels too oppressive. 
 => END

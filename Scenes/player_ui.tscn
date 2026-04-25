@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://m15b35thlxb4"]
+[gd_scene load_steps=9 format=3 uid="uid://m15b35thlxb4"]
 
 [ext_resource type="Script" uid="uid://ogish5qghcrl" path="res://Scripts/player_ui.gd" id="1_dxtgh"]
 [ext_resource type="Texture2D" uid="uid://dqn80cpjsjlio" path="res://Art/png/mc sprite.png" id="1_ohrjl"]
+[ext_resource type="Texture2D" uid="uid://ciyivg2fjdub1" path="res://Art/png/flower 1.png" id="3_6jssq"]
+[ext_resource type="Texture2D" uid="uid://ink2eju25ljx" path="res://Art/png/flower 2.png" id="4_3nrpj"]
+[ext_resource type="Texture2D" uid="uid://cuvlf11i7t632" path="res://Art/png/flower 3.png" id="5_slp1l"]
+[ext_resource type="Texture2D" uid="uid://cngwtbvg4riib" path="res://Art/png/flower 4.png" id="6_i0isd"]
+[ext_resource type="Texture2D" uid="uid://bok6x3hnwh6of" path="res://Art/png/flower 5.png" id="7_byt00"]
+[ext_resource type="Texture2D" uid="uid://btau06llqg8ju" path="res://Art/png/flower 6.png" id="8_dneem"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 layer = 20
@@ -32,6 +38,59 @@ offset_right = 135.0
 offset_bottom = 134.99997
 scale = Vector2(2, 2)
 texture = ExtResource("1_ohrjl")
+
+[node name="Flower1" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_top = 240.0
+offset_right = 40.0
+offset_bottom = 279.99997
+texture = ExtResource("3_6jssq")
+
+[node name="Flower2" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 240.0
+offset_right = 80.0
+offset_bottom = 279.99997
+texture = ExtResource("4_3nrpj")
+
+[node name="Flower3" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 80.0
+offset_top = 240.0
+offset_right = 120.0
+offset_bottom = 279.99997
+texture = ExtResource("5_slp1l")
+
+[node name="Flower4" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 120.0
+offset_top = 240.0
+offset_right = 160.0
+offset_bottom = 279.99997
+texture = ExtResource("6_i0isd")
+
+[node name="Flower5" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 160.0
+offset_top = 240.0
+offset_right = 200.0
+offset_bottom = 279.99997
+texture = ExtResource("7_byt00")
+
+[node name="Flower6" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_top = 240.0
+offset_right = 240.0
+offset_bottom = 279.99997
+texture = ExtResource("8_dneem")
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0

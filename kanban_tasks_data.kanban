@@ -11,7 +11,11 @@
 			"uuid": "4bf68b83-6a71-483d-b1b3-d9ea0dda91f0",
 			"title": "Todo",
 			"tasks": [
-				"56003747-cdba-4cc9-a0c1-f0fc5366d116"
+				"fae207b2-865b-4f06-a27b-35d13fc5cacf",
+				"56003747-cdba-4cc9-a0c1-f0fc5366d116",
+				"9c4569a5-2423-4f41-8003-f76e6928a512",
+				"c8eab118-921b-4b5d-ab9b-e06356c01adf",
+				"b2bfcd31-6d71-4413-8580-295ab017c97f"
 			]
 		},
 		{
@@ -28,7 +32,35 @@
 	"tasks": [
 		{
 			"uuid": "56003747-cdba-4cc9-a0c1-f0fc5366d116",
-			"title": "add bee dialogue for jukebox, add jukebox, add song",
+			"title": "integrate music",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		},
+		{
+			"uuid": "fae207b2-865b-4f06-a27b-35d13fc5cacf",
+			"title": "Art - jukebox, sally the spider, more tilesets (grass instead of black)",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		},
+		{
+			"uuid": "9c4569a5-2423-4f41-8003-f76e6928a512",
+			"title": "code for picking up flowers",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		},
+		{
+			"uuid": "c8eab118-921b-4b5d-ab9b-e06356c01adf",
+			"title": "dialogue box colors",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		},
+		{
+			"uuid": "b2bfcd31-6d71-4413-8580-295ab017c97f",
+			"title": "dialogue....",
 			"description": "",
 			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
 			"steps": []
