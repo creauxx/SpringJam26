@@ -10,7 +10,9 @@
 		{
 			"uuid": "4bf68b83-6a71-483d-b1b3-d9ea0dda91f0",
 			"title": "Todo",
-			"tasks": []
+			"tasks": [
+				"56003747-cdba-4cc9-a0c1-f0fc5366d116"
+			]
 		},
 		{
 			"uuid": "8c616638-cb2d-4121-afe8-d479017d96e3",
@@ -23,7 +25,15 @@
 			"tasks": []
 		}
 	],
-	"tasks": [],
+	"tasks": [
+		{
+			"uuid": "56003747-cdba-4cc9-a0c1-f0fc5366d116",
+			"title": "add bee dialogue for jukebox, add jukebox, add song",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		}
+	],
 	"layout": {
 		"columns": [
 			[

@@ -3,6 +3,7 @@ extends Node2D
 @onready var mc = $MC
 @onready var bee = $Bee
 @onready var game_ui = $PlayerUI
+@onready var tile_map = $BaseLayer
 
 @export var initial_delay: float = 0.15
 
@@ -67,6 +68,11 @@ func _unhandled_input(event: InputEvent):
 
 
 func move_mc(dir):
+	var cell: Vector2 = Vector2(mc.position) + Vector2(dir * tile_size) - Vector2(8, 8)
+	var data = tile_map.get_cell_tile_data(Vector2i(Vector2(cell) / tile_size))
+	if data:
+		var is_solid = data.get_custom_data("is_solid")
+		if is_solid: return
 	mc.position += Vector2(dir * tile_size)
 	
 

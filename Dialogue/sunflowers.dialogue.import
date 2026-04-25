@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cia17strvaftt"
+path="res://.godot/imported/sunflowers.dialogue-88bc79996b16e7cd1a8ca20fac196729.tres"
+
+[deps]
+
+source_file="res://Dialogue/sunflowers.dialogue"
+dest_files=["res://.godot/imported/sunflowers.dialogue-88bc79996b16e7cd1a8ca20fac196729.tres"]
+
+[params]
+
+defaults=true
