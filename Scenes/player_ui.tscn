@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://m15b35thlxb4"]
+[gd_scene load_steps=3 format=3 uid="uid://m15b35thlxb4"]
 
+[ext_resource type="Script" uid="uid://ogish5qghcrl" path="res://Scripts/player_ui.gd" id="1_dxtgh"]
 [ext_resource type="Texture2D" uid="uid://dqn80cpjsjlio" path="res://Art/png/mc sprite.png" id="1_ohrjl"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 layer = 20
+script = ExtResource("1_dxtgh")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
