@@ -22,3 +22,7 @@ func unhide_flowers(array_num: int):
 
 func unhide_spider():
 	spider.show()
+	
+	
+func unhide_sunflower():
+	sunflower.show()

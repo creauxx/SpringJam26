@@ -6,8 +6,7 @@ Connor the Cactus: Well, you don't have to feel like a sunflower to bee...I mean
 Sunny the Sunflower: I guess you're right. Hey, mind if I join you?
 - I'd love that!
 	do sunflower_reward()
-	=> END
-- I'd prefer you didn't. => panic
+- I'd prefer you didn't.
 => END
 
 ~ panic

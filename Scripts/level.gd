@@ -12,6 +12,8 @@ extends Node2D
 @onready var flower_4 = $Flower4
 @onready var flower_5 = $Flower5
 @onready var flower_6 = $Flower6
+@onready var song1 = $Jukebox/Song1
+@onready var song2 = $Jukebox/Song2
 
 @export var initial_delay: float = 0.15
 
@@ -24,11 +26,16 @@ var offset_pos: Vector2 = Vector2(8, 8)
 #story toggles
 var bool_bee_met: bool = false
 var bool_bee_breath_done: bool = false
+var bool_bee_sunflower: bool = false
+var bool_bee_spider: bool = false
 var bool_bee_end: bool = false
+var bool_bee_default: bool = false
 var bool_sunflower_met: bool = false
+var bool_sunflower_panic: bool = false
+var bool_sunflower_reward: bool = false
 var bool_spider_met: bool = false
-var bool_spider_2: bool = false
-var bool_spider_3: bool = false
+var bool_spider_reward: bool = false
+var bool_spider_panic: bool = false
 var bool_first_flower: bool = true
 var bool_flower_1: bool = false
 var bool_flower_2: bool = false
@@ -36,6 +43,8 @@ var bool_flower_3: bool = false
 var bool_flower_4: bool = false
 var bool_flower_5: bool = false
 var bool_flower_6: bool = false
+var flower_count: int = 0
+var jukebox_armed: bool = true
 #sprite vars
 var mc_sprite: Texture2D = preload("res://Art/png/mc sprite.png")
 var mc_sprite_1: Texture2D = preload("res://Art/png/mc sprite 1.png")
@@ -45,6 +54,7 @@ var dialogue_bee = preload("res://Dialogue/bee.dialogue")
 var dialogue_flowers = preload("res://Dialogue/flowers.dialogue")
 var dialogue_sunflowers = preload("res://Dialogue/sunflowers.dialogue")
 var dialogue_spider = preload("res://Dialogue/spider.dialogue")
+var dialogue_jukebox = preload("res://Dialogue/jukebox.dialogue")
 
 
 func _ready():
@@ -66,30 +76,59 @@ func _process(delta: float):
 		await DialogueManager.dialogue_ended		
 		current_dir = Vector2i.ZERO
 		halt = false		
-	if mc.position == (Vector2(16, 80) + offset_pos) and not halt and bool_bee_met and not bool_bee_end and bool_sunflower_met:
+	if mc.position == (Vector2(16, 80) + offset_pos) and not halt and bool_bee_met and not bool_bee_end and bool_sunflower_met and not bool_bee_sunflower:
 		halt = true
+		bool_bee_sunflower = true
 		DialogueManager.show_example_dialogue_balloon(dialogue_bee, "bee_sunflower", [self])
 		await DialogueManager.dialogue_ended		
 		current_dir = Vector2i.ZERO
 		halt = false
-	if mc.position == (Vector2(16, 80) + offset_pos) and not halt and bool_bee_met and not bool_bee_end and bool_spider_met:
+	if mc.position == (Vector2(16, 80) + offset_pos) and not halt and bool_bee_met and not bool_bee_end and bool_spider_met and not bool_bee_spider:
 		halt = true
+		bool_bee_spider = true
 		DialogueManager.show_example_dialogue_balloon(dialogue_bee, "bee_spider", [self])
 		await DialogueManager.dialogue_ended		
 		current_dir = Vector2i.ZERO
 		halt = false
-	if mc.position == (Vector2(16, 80) + offset_pos) and not halt and bool_bee_met and not bool_bee_end:
+	if mc.position == (Vector2(16, 80) + offset_pos) and not halt and bool_bee_met and not bool_bee_end and bool_bee_default:
+		if bool_bee_sunflower and bool_bee_spider and flower_count >= 6:
+			halt = true
+			bool_bee_end = true
+			DialogueManager.show_example_dialogue_balloon(dialogue_bee, "victory", [self])
+			await DialogueManager.dialogue_ended		
+			current_dir = Vector2i.ZERO
+			halt = false			
+		#if not bool_bee_sunflower or not  bool_bee_spider or not flower_count >= 6:
+		else:
+			halt = true
+			bool_bee_default = false
+			DialogueManager.show_example_dialogue_balloon(dialogue_bee, "default", [self])
+			await DialogueManager.dialogue_ended		
+			current_dir = Vector2i.ZERO
+			halt = false
+	
+##Jukebox
+	if (mc.position == Vector2(96, 32) + offset_pos or mc.position == Vector2(88, 0) + offset_pos) and jukebox_armed:
 		halt = true
-		DialogueManager.show_example_dialogue_balloon(dialogue_bee, "bee_1_b", [self])
+		jukebox_armed = false
+		print("1")
+		DialogueManager.show_example_dialogue_balloon(dialogue_jukebox, "playmusic", [self])
 		await DialogueManager.dialogue_ended		
 		current_dir = Vector2i.ZERO
-		halt = false
+		halt = false		
 
 ##Sunny the Sunflower
 	if (mc.position == (sunflower.position) + Vector2(-16, 0) or mc.position == (sunflower.position) + Vector2(0, 16) or mc.position == (sunflower.position) + Vector2(0, -16)) and not halt and not bool_sunflower_met:
 		halt = true
 		bool_sunflower_met = true
 		DialogueManager.show_example_dialogue_balloon(dialogue_sunflowers, "start", [self])
+		await DialogueManager.dialogue_ended	
+		current_dir = Vector2i.ZERO
+		halt = false
+	if (mc.position == (sunflower.position) + Vector2(-16, 0) or mc.position == (sunflower.position) + Vector2(0, 16) or mc.position == (sunflower.position) + Vector2(0, -16)) and not halt and bool_sunflower_met and not bool_sunflower_reward and bool_sunflower_panic:
+		halt = true
+		bool_sunflower_panic = false
+		DialogueManager.show_example_dialogue_balloon(dialogue_sunflowers, "panic", [self])
 		await DialogueManager.dialogue_ended	
 		current_dir = Vector2i.ZERO
 		halt = false
@@ -102,9 +141,9 @@ func _process(delta: float):
 		await DialogueManager.dialogue_ended	
 		current_dir = Vector2i.ZERO
 		halt = false
-	if (mc.position == (spider.position) + Vector2(48, 0) or mc.position == (spider.position) + Vector2(32, 16) or mc.position == (spider.position) + Vector2(16, 32)) and not halt and bool_spider_met and not bool_spider_2 and not bool_spider_3:
+	if (mc.position == (spider.position) + Vector2(48, 0) or mc.position == (spider.position) + Vector2(32, 16) or mc.position == (spider.position) + Vector2(16, 32) or mc.position == (spider.position) + Vector2(0, 48)) and not halt and bool_spider_met and not bool_spider_reward and bool_spider_panic:
 		halt = true
-		bool_spider_3 = true
+		bool_spider_panic = false
 		DialogueManager.show_example_dialogue_balloon(dialogue_spider, "panic", [self])
 		await DialogueManager.dialogue_ended	
 		current_dir = Vector2i.ZERO
@@ -125,10 +164,11 @@ func _process(delta: float):
 		flower_1.position = Vector2(bee.position) + Vector2(0, -16) + Vector2(-4, 0)
 		#flower_1.rotation = -90
 		game_ui.unhide_flowers(0)
+		flower_count += 1
 		current_dir = Vector2i.ZERO
 		halt = false
 #Flower_2
-	if (mc.position == flower_2.position + Vector2(16, 0) or mc.position == flower_2.position + Vector2(0, 16) or mc.position == flower_2.position + Vector2(0, 16)) and not bool_flower_2:
+	if (mc.position == flower_2.position + Vector2(16, 0) or mc.position == flower_2.position + Vector2(0, 16) or mc.position == flower_2.position + Vector2(0, -16)) and not bool_flower_2:
 		halt = true
 		bool_flower_2 = true
 		if bool_first_flower:
@@ -141,10 +181,11 @@ func _process(delta: float):
 		flower_2.position = Vector2(bee.position) + Vector2(0, 16) + Vector2(-4, 0)
 		#flower_2.rotation = -90
 		game_ui.unhide_flowers(1)
+		flower_count += 1
 		current_dir = Vector2i.ZERO
 		halt = false
 #Flower_3
-	if (mc.position == flower_3.position + Vector2(16, 0) or mc.position == flower_3.position + Vector2(-16, 0) or mc.position == flower_3.position + Vector2(0, 16)) and not bool_flower_3:
+	if (mc.position == flower_3.position + Vector2(16, 0) or mc.position == flower_3.position + Vector2(-16, 0) or mc.position == flower_3.position + Vector2(0, -16)) and not bool_flower_3:
 		halt = true
 		bool_flower_3 = true
 		if bool_first_flower:
@@ -157,10 +198,11 @@ func _process(delta: float):
 		flower_3.position = Vector2(bee.position) + Vector2(0, 32) + Vector2(-4, 0)
 		#flower_3.rotation = -90
 		game_ui.unhide_flowers(2)
+		flower_count += 1
 		current_dir = Vector2i.ZERO
 		halt = false
 #Flower_4
-	if (mc.position == flower_4.position + Vector2(0, -32) or mc.position == flower_4.position + Vector2(0, 16)) and not bool_flower_4:
+	if (mc.position == flower_4.position + Vector2(-16, 0) or mc.position == flower_4.position + Vector2(0, 16)) and not bool_flower_4:
 		halt = true
 		bool_flower_4 = true
 		if bool_first_flower:
@@ -173,10 +215,11 @@ func _process(delta: float):
 		flower_4.position = Vector2(bee.position) + Vector2(0, -32) + Vector2(-4, 0)
 		#flower_4.rotation = -90
 		game_ui.unhide_flowers(3)
+		flower_count += 1
 		current_dir = Vector2i.ZERO
 		halt = false
 #Flower_5
-	if (mc.position == flower_5.position + Vector2(16, 0) or mc.position == flower_5.position + Vector2(0, 16) or mc.position == flower_5.position + Vector2(0, -16)) and not bool_flower_5:
+	if (mc.position == flower_5.position + Vector2(-16, 0) or mc.position == flower_5.position + Vector2(0, 16) or mc.position == flower_5.position + Vector2(0, -16)) and not bool_flower_5:
 		halt = true
 		bool_flower_5 = true
 		if bool_first_flower:
@@ -189,6 +232,7 @@ func _process(delta: float):
 		flower_5.position = Vector2(bee.position) + Vector2(0, 48) + Vector2(-4, 0)
 		#flower_5.rotation = -90
 		game_ui.unhide_flowers(4)
+		flower_count += 1
 		current_dir = Vector2i.ZERO
 		halt = false
 #Flower_6
@@ -205,12 +249,9 @@ func _process(delta: float):
 		flower_6.position = Vector2(bee.position) + Vector2(0, -48) + Vector2(-4, 0)
 		#flower_6.rotation = -90
 		game_ui.unhide_flowers(5)
+		flower_count += 1
 		current_dir = Vector2i.ZERO
-		halt = false
-
-
-		
-		
+		halt = false		
 
 ##MC movement
 	if halt: return
@@ -249,7 +290,10 @@ func move_mc(dir):
 		var is_solid = data.get_custom_data("is_solid")
 		if is_solid: return
 	mc.position += Vector2(dir * tile_size)
-	bool_spider_3 = false
+	bool_spider_panic = true
+	bool_sunflower_panic = true
+	bool_bee_default = true
+	jukebox_armed = true
 
 
 func reward_bee():
@@ -260,9 +304,26 @@ func reward_bee():
 func spider_reward():
 	spider.position = Vector2(48, 16) + offset_pos
 	game_ui.unhide_spider()
-	bool_spider_2 = true
+	bool_spider_reward = true
 
 
 func sunflower_reward():
 	sunflower.position = Vector2(48, 144) + offset_pos
 	game_ui.unhide_sunflower()
+	bool_sunflower_reward = true
+
+
+func play_music(answer: String):
+	match answer:
+		"song1":
+			song2.stop()
+			song1.play()
+		"song2":
+			song1.stop()
+			song2.play()
+		"none":
+			song1.stop()
+			song2.stop()
+		"all":
+			song1.play()
+			song2.play()

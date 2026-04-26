@@ -4,5 +4,25 @@ Connor the Cactus: I wonder if there are other flowers around here.
 => END
 
 ~ flower1
-Connor the Cactus: I love red! You're coming home with me.
+Connor the Cactus: I'll have that one please.
+=> END
+
+~ flower2
+Connor the Cactus: To die for.
+=> END
+
+~ flower3
+Connor the Cactus: *gasp*
+=> END
+
+~ flower4
+Connor the Cactus: I love red! You're coming home with me. 
+=> END
+
+~ flower5
+Connor the Cactus: Mine!
+=> END
+
+~ flower6
+Connor the Cactus: Oh for sure.
 => END

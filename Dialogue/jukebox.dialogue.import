@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://baa6yobbawlow"
+path="res://.godot/imported/jukebox.dialogue-5f69318aa22f8f2509a78ea6caa253c2.tres"
+
+[deps]
+
+source_file="res://Dialogue/jukebox.dialogue"
+dest_files=["res://.godot/imported/jukebox.dialogue-5f69318aa22f8f2509a78ea6caa253c2.tres"]
+
+[params]
+
+defaults=true

@@ -20,18 +20,36 @@ Connor the Cactus: Oh, hey. I'm not sure I feel very good lookin' today...
 
 ~ breath
 Beatrice the Bee: deeeeeeep.....breathhhhh....
-Beatrice the Bee:. 
 - *take a deep breath* 
 	=> breath_done
 - OK => END
+=> END
 
 ~ breath_done
 Beatrice the Bee: That's the spririt! Go for a walk, it'll do ya some good. I'll wait over there. 
 do reward_bee()
 => END
 
-~ bee_1_b
+~ default
 Beatrice the Bee: Go for a walk, it'll do ya some good. 
 Beatrice the Bee: You can press "q" to return here at any time.
 Beatrice the Bee: There's a jukebox if the solitary sound of your breath feels too oppressive. 
+=> END
+
+~ bee_sunflower
+Beatrice the Bee: You met Sunny! A little smelly, but he means well.
+=> END
+
+~ bee_spider
+Beatrice the Bee: Ah. You met...Sally... 
+- Yes! => END
+- She seems awfully scared... => shes_scared
+=> END
+
+~ shes_scared
+Beatrice the Bee: *pft* She's scared? Imagine how I feel...
+=> END
+
+~ victory
+Beatrice the Bee: You did it!
 => END

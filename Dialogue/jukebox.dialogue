@@ -1,0 +1,11 @@
+~ playmusic
+Jerry the Jukebox: test
+- Open Your Eyes to a Springfield Morning
+	do play_music("song2")
+- Making Choices
+	do play_music("song1")
+- The Sound of your Breath
+	do play_music("none")
+- All three!
+	do play_music("all")
+=> END

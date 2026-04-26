@@ -50,82 +50,85 @@ color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = 110.0
-offset_top = 130.0
-offset_right = 150.0
-offset_bottom = 169.99997
-scale = Vector2(2, 2)
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 110.0
+offset_bottom = 109.99997
+scale = Vector2(4, 4)
 texture = ExtResource("1_ohrjl")
 
 [node name="Spider" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 0
-offset_left = 250.0
+offset_left = 225.0
 offset_top = 50.0
-offset_right = 290.0
+offset_right = 265.0
 offset_bottom = 89.99997
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_slp1l")
 
 [node name="Sunflower" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 0
 offset_left = 10.0
-offset_top = 50.0
+offset_top = 45.0
 offset_right = 50.0
-offset_bottom = 89.99997
+offset_bottom = 84.99997
+scale = Vector2(1.75, 1.75)
 texture = ExtResource("4_i0isd")
 
 [node name="Flower1" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 0
-offset_top = 240.0
-offset_right = 40.0
-offset_bottom = 279.99997
+offset_left = 7.5
+offset_top = 233.0
+offset_right = 47.5
+offset_bottom = 272.99997
 texture = ExtResource("3_6jssq")
 
 [node name="Flower2" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 0
-offset_left = 40.0
-offset_top = 240.0
-offset_right = 80.0
-offset_bottom = 279.99997
+offset_left = 56.5
+offset_top = 233.0
+offset_right = 96.5
+offset_bottom = 272.99997
 texture = ExtResource("4_3nrpj")
 
 [node name="Flower3" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 0
-offset_left = 80.0
-offset_top = 240.0
-offset_right = 120.0
-offset_bottom = 279.99997
+offset_left = 105.5
+offset_top = 233.0
+offset_right = 145.5
+offset_bottom = 272.99997
 texture = ExtResource("5_slp1l")
 
 [node name="Flower4" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 0
-offset_left = 120.0
-offset_top = 240.0
-offset_right = 160.0
-offset_bottom = 279.99997
+offset_left = 154.5
+offset_top = 233.0
+offset_right = 194.5
+offset_bottom = 272.99997
 texture = ExtResource("6_i0isd")
 
 [node name="Flower5" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 0
-offset_left = 160.0
-offset_top = 240.0
-offset_right = 200.0
-offset_bottom = 279.99997
+offset_left = 203.5
+offset_top = 233.0
+offset_right = 243.5
+offset_bottom = 272.99997
 texture = ExtResource("7_byt00")
 
 [node name="Flower6" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 0
-offset_left = 200.0
-offset_top = 240.0
-offset_right = 240.0
-offset_bottom = 279.99997
+offset_left = 252.5
+offset_top = 233.0
+offset_right = 292.5
+offset_bottom = 272.99997
 texture = ExtResource("8_dneem")
 
 [node name="Label" type="Label" parent="Control"]
