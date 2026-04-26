@@ -62,6 +62,10 @@ func _ready():
 	
 	
 func _process(delta: float):
+##Game Over
+
+
+
 ##Batrice the Bee
 	if mc.position == (Vector2(96, 80) + offset_pos) and not halt and not bool_bee_met:
 		halt = true
@@ -161,7 +165,7 @@ func _process(delta: float):
 		else:
 			DialogueManager.show_example_dialogue_balloon(dialogue_flowers, "flower1", [self])
 			await DialogueManager.dialogue_ended	
-		flower_1.position = Vector2(bee.position) + Vector2(0, -16) + Vector2(-4, 0)
+		flower_1.position = Vector2(bee.position) + Vector2(16, 64) + Vector2(-4, 0)
 		#flower_1.rotation = -90
 		game_ui.unhide_flowers(0)
 		flower_count += 1
@@ -178,7 +182,7 @@ func _process(delta: float):
 		else:
 			DialogueManager.show_example_dialogue_balloon(dialogue_flowers, "flower2", [self])
 			await DialogueManager.dialogue_ended	
-		flower_2.position = Vector2(bee.position) + Vector2(0, 16) + Vector2(-4, 0)
+		flower_2.position = Vector2(bee.position) + Vector2(0, -16) + Vector2(-4, 0)
 		#flower_2.rotation = -90
 		game_ui.unhide_flowers(1)
 		flower_count += 1
@@ -195,7 +199,7 @@ func _process(delta: float):
 		else:
 			DialogueManager.show_example_dialogue_balloon(dialogue_flowers, "flower3", [self])
 			await DialogueManager.dialogue_ended	
-		flower_3.position = Vector2(bee.position) + Vector2(0, 32) + Vector2(-4, 0)
+		flower_3.position = Vector2(bee.position) + Vector2(64, 64) + Vector2(-4, 0)
 		#flower_3.rotation = -90
 		game_ui.unhide_flowers(2)
 		flower_count += 1
@@ -212,7 +216,7 @@ func _process(delta: float):
 		else:
 			DialogueManager.show_example_dialogue_balloon(dialogue_flowers, "flower4", [self])
 			await DialogueManager.dialogue_ended	
-		flower_4.position = Vector2(bee.position) + Vector2(0, -32) + Vector2(-4, 0)
+		flower_4.position = Vector2(bee.position) + Vector2(96, -16) + Vector2(-4, 0)
 		#flower_4.rotation = -90
 		game_ui.unhide_flowers(3)
 		flower_count += 1
@@ -229,7 +233,7 @@ func _process(delta: float):
 		else:
 			DialogueManager.show_example_dialogue_balloon(dialogue_flowers, "flower5", [self])
 			await DialogueManager.dialogue_ended	
-		flower_5.position = Vector2(bee.position) + Vector2(0, 48) + Vector2(-4, 0)
+		flower_5.position = Vector2(bee.position) + Vector2(96, 32) + Vector2(-4, 0)
 		#flower_5.rotation = -90
 		game_ui.unhide_flowers(4)
 		flower_count += 1
@@ -246,7 +250,7 @@ func _process(delta: float):
 		else:
 			DialogueManager.show_example_dialogue_balloon(dialogue_flowers, "flower6", [self])
 			await DialogueManager.dialogue_ended	
-		flower_6.position = Vector2(bee.position) + Vector2(0, -48) + Vector2(-4, 0)
+		flower_6.position = Vector2(bee.position) + Vector2(48, 64) + Vector2(-4, 0)
 		#flower_6.rotation = -90
 		game_ui.unhide_flowers(5)
 		flower_count += 1
@@ -327,3 +331,7 @@ func play_music(answer: String):
 		"all":
 			song1.play()
 			song2.play()
+			
+func restart(timer: int):
+	await get_tree().create_timer(timer).timeout
+	get_tree().reload_current_scene()

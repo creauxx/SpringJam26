@@ -53,3 +53,11 @@ Beatrice the Bee: *pft* She's scared? Imagine how I feel...
 ~ victory
 Beatrice the Bee: You did it!
 => END
+
+~ defeat
+Beatrice the Bee: Take a hint, deeary. You've lost. 
+- Alright... 
+	do restart(0)
+- Wait, actually? 
+	do restart(0)
+	=> END

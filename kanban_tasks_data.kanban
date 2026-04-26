@@ -11,22 +11,29 @@
 			"uuid": "4bf68b83-6a71-483d-b1b3-d9ea0dda91f0",
 			"title": "Todo",
 			"tasks": [
-				"fae207b2-865b-4f06-a27b-35d13fc5cacf",
-				"56003747-cdba-4cc9-a0c1-f0fc5366d116",
-				"9c4569a5-2423-4f41-8003-f76e6928a512",
-				"b2bfcd31-6d71-4413-8580-295ab017c97f"
+				"b2bfcd31-6d71-4413-8580-295ab017c97f",
+				"6e70f140-5f83-46ab-971b-526682e0671d",
+				"fe1bccb2-115e-4121-9298-475533248d97",
+				"c49f381e-648d-4765-8887-9e415e14c59c",
+				"9e5483f8-3057-4aef-a7c7-49544c24c2c8"
 			]
 		},
 		{
 			"uuid": "8c616638-cb2d-4121-afe8-d479017d96e3",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"fae207b2-865b-4f06-a27b-35d13fc5cacf"
+			]
 		},
 		{
 			"uuid": "8e7c13ac-2ce6-415d-841e-8acf10c84b36",
 			"title": "Done",
 			"tasks": [
-				"c8eab118-921b-4b5d-ab9b-e06356c01adf"
+				"c8eab118-921b-4b5d-ab9b-e06356c01adf",
+				"9c4569a5-2423-4f41-8003-f76e6928a512",
+				"56003747-cdba-4cc9-a0c1-f0fc5366d116",
+				"c04acfd4-5636-4578-bbf6-188ee6900729",
+				"8d914dc3-bcb0-453e-b457-b279b395806e"
 			]
 		}
 	],
@@ -40,7 +47,7 @@
 		},
 		{
 			"uuid": "fae207b2-865b-4f06-a27b-35d13fc5cacf",
-			"title": "Art - sally the spider, water tileset, mountain tileset, border tileset",
+			"title": "Final Art - sally the spider, water tileset",
 			"description": "",
 			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
 			"steps": []
@@ -61,7 +68,49 @@
 		},
 		{
 			"uuid": "b2bfcd31-6d71-4413-8580-295ab017c97f",
-			"title": "dialogue....",
+			"title": "final dialogue review",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		},
+		{
+			"uuid": "8d914dc3-bcb0-453e-b457-b279b395806e",
+			"title": "return flower placement ",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		},
+		{
+			"uuid": "c04acfd4-5636-4578-bbf6-188ee6900729",
+			"title": "mountain tile set",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		},
+		{
+			"uuid": "6e70f140-5f83-46ab-971b-526682e0671d",
+			"title": " victory/loss Sequence",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		},
+		{
+			"uuid": "fe1bccb2-115e-4121-9298-475533248d97",
+			"title": "final playtesting",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		},
+		{
+			"uuid": "c49f381e-648d-4765-8887-9e415e14c59c",
+			"title": "finalize blurb with NS24",
+			"description": "",
+			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
+			"steps": []
+		},
+		{
+			"uuid": "9e5483f8-3057-4aef-a7c7-49544c24c2c8",
+			"title": "Post to Itch.io + Test on Itch.io",
 			"description": "",
 			"category": "81bc7e20-b5e1-469a-99be-63d65592a768",
 			"steps": []
