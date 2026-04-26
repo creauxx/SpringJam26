@@ -165,8 +165,8 @@ texture = ExtResource("17_nngtn")
 
 [node name="Song1" type="AudioStreamPlayer" parent="Jukebox"]
 stream = ExtResource("21_pnhnk")
-volume_db = 8.0
+volume_db = 5.0
 
 [node name="Song2" type="AudioStreamPlayer" parent="Jukebox"]
 stream = ExtResource("22_24uko")
-volume_db = 6.0
+volume_db = 3.0
