@@ -1,5 +1,5 @@
 ~ playmusic
-Jerry the Jukebox: test
+Jerry the Jukebox: ...
 - Open Your Eyes to a Springfield Morning
 	do play_music("song2")
 - Making Choices

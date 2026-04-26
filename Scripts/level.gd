@@ -45,6 +45,8 @@ var bool_flower_5: bool = false
 var bool_flower_6: bool = false
 var flower_count: int = 0
 var jukebox_armed: bool = true
+var sunflower_failed: bool = false
+var spider_failed: bool = false
 #sprite vars
 var mc_sprite: Texture2D = preload("res://Art/png/mc sprite.png")
 var mc_sprite_1: Texture2D = preload("res://Art/png/mc sprite 1.png")
@@ -55,6 +57,7 @@ var dialogue_flowers = preload("res://Dialogue/flowers.dialogue")
 var dialogue_sunflowers = preload("res://Dialogue/sunflowers.dialogue")
 var dialogue_spider = preload("res://Dialogue/spider.dialogue")
 var dialogue_jukebox = preload("res://Dialogue/jukebox.dialogue")
+var dialogue_victory = preload("res://Dialogue/victory.dialogue")
 
 
 func _ready():
@@ -63,7 +66,13 @@ func _ready():
 	
 func _process(delta: float):
 ##Game Over
-
+	if (mc.position == (Vector2(16, 80) + offset_pos)) and (spider_failed or sunflower_failed) and not halt:
+		halt = true
+		DialogueManager.show_example_dialogue_balloon(dialogue_bee, "defeat", [self])
+		await DialogueManager.dialogue_ended		
+		current_dir = Vector2i.ZERO
+		halt = false
+		return
 
 
 ##Batrice the Bee
@@ -74,6 +83,7 @@ func _process(delta: float):
 		await DialogueManager.dialogue_ended		
 		current_dir = Vector2i.ZERO
 		halt = false
+		return
 	if mc.position == (Vector2(96, 80) + offset_pos) and not halt and bool_bee_met and not bool_bee_breath_done:
 		halt = true
 		DialogueManager.show_example_dialogue_balloon(dialogue_bee, "breath", [self])
@@ -95,13 +105,16 @@ func _process(delta: float):
 		current_dir = Vector2i.ZERO
 		halt = false
 	if mc.position == (Vector2(16, 80) + offset_pos) and not halt and bool_bee_met and not bool_bee_end and bool_bee_default:
-		if bool_bee_sunflower and bool_bee_spider and flower_count >= 6:
+		if bool_spider_reward and bool_sunflower_reward and flower_count >= 6:
 			halt = true
 			bool_bee_end = true
 			DialogueManager.show_example_dialogue_balloon(dialogue_bee, "victory", [self])
-			await DialogueManager.dialogue_ended		
+			await DialogueManager.dialogue_ended	
+			await victory_sequence()	
 			current_dir = Vector2i.ZERO
-			halt = false			
+			halt = false	
+			restart(0)
+			return		
 		#if not bool_bee_sunflower or not  bool_bee_spider or not flower_count >= 6:
 		else:
 			halt = true
@@ -306,13 +319,21 @@ func reward_bee():
 	
 	
 func spider_reward():
-	spider.position = Vector2(48, 16) + offset_pos
+	spider.position = Vector2(0, 16) + offset_pos
 	game_ui.unhide_spider()
 	bool_spider_reward = true
+	
+	
+func spider_failure():
+	spider_failed = true
+	
+	
+func sunflower_failure():
+	sunflower_failed = true
 
 
 func sunflower_reward():
-	sunflower.position = Vector2(48, 144) + offset_pos
+	sunflower.position = Vector2(48, 16) + offset_pos
 	game_ui.unhide_sunflower()
 	bool_sunflower_reward = true
 
@@ -332,6 +353,13 @@ func play_music(answer: String):
 			song1.play()
 			song2.play()
 			
+			
 func restart(timer: int):
 	await get_tree().create_timer(timer).timeout
 	get_tree().reload_current_scene()
+	
+	
+func victory_sequence():
+	$CanvasLayer.show()
+	DialogueManager.show_example_dialogue_balloon(dialogue_victory, "win", [self])
+	await DialogueManager.dialogue_ended	

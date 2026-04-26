@@ -2,11 +2,13 @@
 Sunny the Sunflower: Oh. Hi. I didn't see you there :/ 
 Connor the Cactus: Is everything alright? 
 Sunny the Sunflower: Yes. Well, no. It's just...I don't quite feel like a sunflower today. 
-Connor the Cactus: Well, you don't have to feel like a sunflower to bee...I mean...be a sunflower. 
-Sunny the Sunflower: I guess you're right. Hey, mind if I join you?
+Connor the Cactus: Well, you don't have to feel like a sunflower to Bee...I mean...be a sunflower. 
+Sunny the Sunflower: I guess you're right. Thanks. 
+Sunny the Sunflower: Hey, mind if I join you?
 - I'd love that!
 	do sunflower_reward()
-- I'd prefer you didn't.
+- I'd actually prefer if you didn't.
+	do sunflower_failure()
 => END
 
 ~ panic

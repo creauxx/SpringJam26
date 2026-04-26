@@ -151,6 +151,8 @@ func apply_dialogue_line() -> void:
 			$Balloon/MarginContainer/PanelContainer/ColorRect.self_modulate = Color.BLACK
 		"Jerry the Jukebox":
 			$Balloon/MarginContainer/PanelContainer/ColorRect.self_modulate = Color.DARK_RED
+		"Narrator":
+			$Balloon/MarginContainer/PanelContainer/ColorRect.self_modulate = Color.BLACK
 ##
 	# Show our balloon
 	balloon.show()

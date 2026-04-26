@@ -1,18 +1,20 @@
 ~ start
 Beatrice the Bee: Hey good lookin'. 
-Connor the Cactus: Oh, hey. I'm not sure I feel very good lookin' today...
-#Beatrice the Bee: Well that's quite alright cause you don't have to feel it to look it! 
-#Connor the Cactus: Thanks...if you don't mind me asking...what are you, exactly?
-#Beatrice the Bee: I'm a Bee of course, Beatrice is the name. 
-#Connor the Cactus: You don't look like a bee...
-#Beatrice the Bee: Well that's quite alright cause I don't have to look it to bee it!
-#Connor the Cactus: Well, ok...sorry....is it always so quiet here, Beatrice? 
-#Beatrice the Bee: I don't think it's quiet!
-#Beatrice the Bee: You can hear the sound of your own breath, can't ya? 
-#Connor the Cactus: Well, yeah, but...that's not--
-#Beatrice the Bee: How 'bout you take a deep breath and go for a walk, it'll do you some good. 
-#Connor the Cactus: But I don't wan--
-#Beatrice the Bee: Together now...deeeeeep...breathhhh....I'll be here when you get back. 
+Connor the Cactus: Oh, hey. 
+Connor the Cactus: I'm not sure I feel very good lookin' today...
+Beatrice the Bee: Well that's quite alright cause you don't have to feel it to look it! 
+Connor the Cactus: Thanks...if you don't mind me asking...what are you, exactly?
+Beatrice the Bee: I'm a Bee of course, Beatrice is the name. 
+Connor the Cactus: You don't look like a Bee...
+Beatrice the Bee: Well that's quite alright cause I don't have to look it to Bee it!
+Connor the Cactus: Well, ok...sorry.
+Connor the Cactus: ...is it always so quiet here, Beatrice? 
+Beatrice the Bee: I don't think it's quiet!
+Beatrice the Bee: You can hear the sound of your own breathing, can't ya? 
+Connor the Cactus: Well, yeah, but...that's not--
+Beatrice the Bee: How 'bout you take a deep breath and go for a walk, it'll do you some good. 
+Connor the Cactus: But I don't wan--
+Beatrice the Bee: Together now...deeeeeep...breathhhh....I'll be here when you get back. 
 - *take a deep breath* 
 	=> breath_done
 - OK 
@@ -26,14 +28,14 @@ Beatrice the Bee: deeeeeeep.....breathhhhh....
 => END
 
 ~ breath_done
-Beatrice the Bee: That's the spririt! Go for a walk, it'll do ya some good. I'll wait over there. 
+Beatrice the Bee: That's the spirit! Go for a walk, it'll do ya some good. I'll wait over there. 
 do reward_bee()
 => END
 
 ~ default
 Beatrice the Bee: Go for a walk, it'll do ya some good. 
 Beatrice the Bee: You can press "q" to return here at any time.
-Beatrice the Bee: There's a jukebox if the solitary sound of your breath feels too oppressive. 
+Beatrice the Bee: There's a jukebox if the solitary sound of your breathing feels too oppressive. 
 => END
 
 ~ bee_sunflower
@@ -51,11 +53,11 @@ Beatrice the Bee: *pft* She's scared? Imagine how I feel...
 => END
 
 ~ victory
-Beatrice the Bee: You did it!
+Beatrice the Bee: I'm satisfied!
 => END
 
 ~ defeat
-Beatrice the Bee: Take a hint, deeary. You've lost. 
+Beatrice the Bee: Take a hint, dearie. You've lost. 
 - Alright... 
 	do restart(0)
 - Wait, actually? 
